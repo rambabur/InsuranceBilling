@@ -1,5 +1,6 @@
 package com.etizen.billing.insurance;
 
+import com.etizen.billing.insurance.services.BillingService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,14 +14,12 @@ public class App {
 
         ApplicationContext context =
                 new ClassPathXmlApplicationContext(new String[] {"spring-billing-config.xml"});
-
-        InsuranceBillingDelegator delegator = (InsuranceBillingDelegator)context.getBean("insuranceBillingDelegator");
-        //InsuranceBillingDelegator delegator = new InsuranceBillingDelegator();
-        delegator.getCurrentBillingInfo();
-        delegator.getBillingHistory();
+        BillingService service = (BillingService)context.getBean("billingService");
+        service.getCurrentBillingInfo();
+        service.getBillingHistory();
         System.out.println("Successfully executed..");
 
-        delegator.getBillingPeriods();
+        service.getBillingPeriods();
     }
 
 

@@ -36,6 +36,7 @@ public class InsuranceBillingDelegator {
         while (iterator.hasNext()) {
             logger.info(iterator.next());
         }
+        logger.info("Logged success");
         return list;
 
     }

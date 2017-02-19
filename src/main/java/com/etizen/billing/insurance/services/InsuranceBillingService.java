@@ -13,9 +13,10 @@ import java.util.*;
  * Created by Janu on 2/19/2017.
  */
 @Component
-public class InsuranceBillingService  {
+public class InsuranceBillingService {
 
     static Logger logger = Logger.getLogger(InsuranceBillingService.class);
+
     public BillingDetails getCurrentTermBillDetails() {
         return getCurrentBillingPeriodDetails();
     }
@@ -43,7 +44,7 @@ public class InsuranceBillingService  {
             bills.add(billingDetails2);
 
             logger.info("Total Bills Generated. " + bills.size());
-        }catch(Exception ex){
+        } catch (Exception ex) {
             logger.error("Exceptiopn has occured...");
         }
 
@@ -71,11 +72,12 @@ public class InsuranceBillingService  {
         cal.set(year, month, day);
         return cal.getTime();
     }
-    public List<String> getBillingPeriods()
-    {
+
+    public List<String> getBillingPeriods() {
         List<String> list = new ArrayList<String>();
         list.add("01/1/2016 to 06/01/2016");
         list.add("07/1/2016 to 12/01/2016");
-                return list;
+        list.add("01/01/2017 to 06/01/2017");
+        return list;
     }
 }

@@ -44,6 +44,8 @@ public class InsuranceBillingService  {
             billingDetails2.setBillingStatus("Paid");
             billingDetails2.setTotalDueAmt(new BigDecimal("602.00"));
             bills.add(billingDetails2);
+
+            logger.info("Total Bills Generated. " + bills.size());
         }catch(Exception ex){
             logger.error("Exceptiopn has occured...");
         }

@@ -1,7 +1,8 @@
 package com.etizen.billing.insurance;
-
+import java.util.Iterator;
 import com.etizen.billing.insurance.dto.BillingDetails;
 import com.etizen.billing.insurance.services.InsuranceBillingService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,8 @@ import java.util.List;
  */
 @Component
 public class InsuranceBillingDelegator {
+
+    static Logger logger = Logger.getLogger(InsuranceBillingDelegator.class);
 
     @Autowired
     private InsuranceBillingService insuranceBillingService;
@@ -26,5 +29,14 @@ public class InsuranceBillingDelegator {
 
     public void setInsuranceBillingService(InsuranceBillingService insuranceBillingService) {
         this.insuranceBillingService = insuranceBillingService;
+    }
+    public List<String> getBillingPeriods() {
+        List<String> list=insuranceBillingService.getBillingPeriods();
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            logger.info(iterator.next());
+        }
+        return list;
+
     }
 }

@@ -7,10 +7,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Janu on 2/19/2017.
@@ -73,5 +70,12 @@ public class InsuranceBillingService  {
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, day);
         return cal.getTime();
+    }
+    public List<String> getBillingPeriods()
+    {
+        List<String> list = new ArrayList<String>();
+        list.add("01/1/2016 to 06/01/2016");
+        list.add("07/1/2016 to 12/01/2016");
+                return list;
     }
 }

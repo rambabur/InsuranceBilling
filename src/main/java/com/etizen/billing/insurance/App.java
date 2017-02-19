@@ -19,6 +19,8 @@ public class App {
         delegator.getCurrentBillingInfo();
         delegator.getBillingHistory();
         System.out.println("Successfully executed..");
+
+        delegator.getBillingPeriods();
     }
 
 
